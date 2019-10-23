@@ -18,12 +18,13 @@ export class SurveyListComponent {
   }
   hasAnswered(survey): boolean {
     let ans = false;
-    for (const answer in survey.answers) {
+    survey.answers.forEach(answer => {
+      console.log(survey.question + ' ' + answer.user + ' ' + answer.option + ' ' + user.name);
       if (answer.user === user.name) {
-        console.log('return true' + survey.question + ' ' + answer.user + ' ' + user.name);
+        console.log('true');
         ans = true;
       }
-    }
+    });
     return ans;
   }
 }

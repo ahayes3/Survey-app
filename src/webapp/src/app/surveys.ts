@@ -5,7 +5,7 @@ export const surveys = [
     options: ['Blue', 'Red', 'Green', 'Yellow'],
     answers: [
       {
-      user: 'Eric',
+      user: 'Andy',
       option: 'Blue'
       },
       {
@@ -18,7 +18,12 @@ export const surveys = [
     user: 'Eric',
     question: 'Dogs or Cats?',
     options: ['Dogs', 'Cats'],
-    answers: []
+    answers: [
+      {
+        user: 'Justin',
+        option: 'Green'
+      }
+    ]
   },
   {
     user: 'Justin',
