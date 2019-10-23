@@ -1,0 +1,29 @@
+<div *ngFor="let survey of surveys">
+
+  <div *ngIf="hasAnswered(survey); else hasntAnswered">
+
+    <p *ngFor="let answer of survey.answers">
+      {{answer.user}} answered {{answer.option}}
+    </p>
+
+  </div>
+
+  <ng-template #hasntAnswered>
+
+    <h3>
+      User: {{ survey.user }}
+    </h3>
+
+    <p *ngIf="survey.question">
+      Question: {{ survey.question }}
+    </p>
+
+    <p *ngFor="let option of survey.options">
+      <button (click)="answered(option, survey)">
+        {{ option }}
+      </button>
+    </p>
+
+  </ng-template>
+
+</div>
