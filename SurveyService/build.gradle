@@ -1,0 +1,49 @@
+apply plugin: 'war'
+
+apply plugin: 'liberty'
+
+apply plugin: 'application'
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'net.wasdev.wlp.gradle.plugins:liberty-gradle-plugin:2.6.3'
+    }
+}
+
+ext{
+    appName = project.name
+    httpPort = 8080
+    httpsPort = 9443
+    warContext = appName
+}
+
+liberty{
+    server{
+        name = "${appName}Server"
+        configFile = file("src/main/liberty/config/server.xml")
+        
+        bootstrapProperties = ['default.http.port':httpPort,
+                               'default.https.port':httpsPort,
+                                'app.context.root': warContext]
+        
+        packageLiberty{
+            archive = '$buildDir/${appName}.zip}'
+            include = "usr"
+        }
+    }
+}
+
+war{
+    archiveName = "${baseName}.${extension}"
+}
+
+clean.dependsOn 'libertyStop'
+libertyPackage.dependsOn 'libertyStop'
