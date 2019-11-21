@@ -1,3 +1,6 @@
 export const user = {
-  name: 'Eric'
+  name: 'Eric',
+  password: 'login',
+  loggedIn: false,
+  authenticated: false,
 };

@@ -9,22 +9,13 @@
   </h2>
 
 
-  <div *ngIf="hasAnswered(survey); else hasntAnswered">
+  <div id="chart"></div>
 
-    <p *ngFor="let answer of survey.answers">
-      {{answer.user}} answered {{answer.option}}
-    </p>
-
-  </div>
-
-  <ng-template #hasntAnswered>
-
+  <div *ngIf="!hasAnswered(survey)">
     <p *ngFor="let option of survey.options">
       <button (click)="answered(option, survey)">
         {{ option }}
       </button>
     </p>
-
-  </ng-template>
-
+  </div>
 </div>
