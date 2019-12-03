@@ -67,6 +67,6 @@ export class BarGraphComponent {
   }
 
   constructor() {
-
+    
   }
 }
