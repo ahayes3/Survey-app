@@ -13,7 +13,7 @@ export const surveys = [
         option: 'Green'
       }
     ],
-    id: 1
+    id: '245345352'
   },
   {
     user: 'Eric',
@@ -21,17 +21,17 @@ export const surveys = [
     options: ['Dogs', 'Cats'],
     answers: [
       {
-        user: 'Justin',
-        option: 'Green'
+        user: 'Eric',
+        option: 'Dogs'
       }
     ],
-    id: 2
+    id: '234324234'
   },
   {
     user: 'Justin',
     question: 'Do you like pizza?',
     options: ['Yes', 'No', 'Sometimes'],
     answers: [],
-    id: 3
-  }
+    id: '23123123123'
+  },
 ];

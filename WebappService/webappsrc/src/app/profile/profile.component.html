@@ -1,1 +1,47 @@
-<p>profile works!</p>
+<html>
+<body>
+<div id = "main">
+  <header>
+    <h1> <img src = "assets/{{user}}.png" > Profile</h1>
+  </header>
+  <nav>
+    <button type="button" class = "button" onclick = "fix()">About Me</button>
+    <button type = "button" class = "button" onclick = "Survey()">My Surveys</button>
+    <button type = "button" class = "button" onclick = "myFunction()">Friends</button>
+  </nav>
+  <div id = "content">
+    <div id = "surveys"> </div>
+    <div id = "friends">
+      <p>Justin Cesarini</p>
+      <p>Eric Simonetti</p>
+      <p>Andy Hayes</p>
+    </div>
+    <h2>Bio</h2>
+    <p>20 years old, SUNY Oswego, football, basktball, and baseball player
+      "Always pursue the things you love the most" ~Einstein </p>
+  </div>
+
+
+  <footer><p>SurveyMe support, contact us @ www.SurveyMe.com/support</p></footer>
+
+</div>
+
+</body>
+
+<script>
+  function fix(){
+    document.getElementById("friends").style.display = "none";
+    document.getElementById("surveys").style.display = "none";
+  }
+
+  function Survey(){
+    document.getElementById("friends").style.display = "none";
+    document.getElementById("surveys").style.display = "block";
+  }
+
+  function myFunction(){
+    document.getElementById("friends").style.display = "block";
+    document.getElementById("surveys").style.display = "none";
+  }
+</script>
+</html>
