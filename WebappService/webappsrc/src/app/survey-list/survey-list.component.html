@@ -1,3 +1,4 @@
+
 <div *ngFor="let survey of surveys" style="display: inline-flex; width: 48%; float: left">
 
   <div class = "holder" style="height: 340px; width: 100%;">
@@ -5,11 +6,9 @@
     <div class = "surveyBar">
 
       <div style="display: inline-flex;">
-
         <div style="margin: 10px 15px 0px 0px;">
           <img src = "assets/{{survey.user}}.png" alt = "assets/{{survey.user}}.png" width="45" height="45" style="border-radius: 50%;">
         </div>
-
         <h3>
           User: {{ survey.user }}
         </h3>

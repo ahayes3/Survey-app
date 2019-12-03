@@ -53,7 +53,6 @@ export class SurveyListComponent implements OnInit {
     }
     return false;
   }
-
   answered(option, survey) {
     survey.answers.push({
       user: user.name,
