@@ -2,24 +2,31 @@ package survey;
 
 import java.util.Properties;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 // tag::path[]
-@Path("properties")
+@Path("surveys")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 // end::path[]
 public class PropertiesResource {
 
-    // tag::get[]
     @GET
-    // end::get[]
-    // tag::produces[]
-    @Produces(MediaType.APPLICATION_JSON)
-    // end::produces[]
-    public Properties getProperties() {
-        return System.getProperties();
+    public String getSurveys() { return "test"; }
+
+    @POST
+    public String addSurvey(String surveyJSON) { return "test1"; }
+
+    @Path("/{user}")
+    @GET
+    public String getUserSurveys(@PathParam("user") final String user) {
+        return user + "'s surveys";
     }
 
+    @Path("/{user}/{key}")
+    @GET
+    public String getSearchSurveys(@PathParam("user") final String user, @PathParam("key") final String key) {
+        return user + "'s surveys with " + key;
+    }
 }
