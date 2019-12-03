@@ -1,3 +1,5 @@
+apply plugin: 'java'
+
 apply plugin: 'war'
 
 apply plugin: 'liberty'
@@ -27,6 +29,9 @@ repositories {
 }
 
 dependencies {
+    //implementation files('C:\\Users\\erics\\Desktop\\CS\\External Jars\\javax.json.bind-api-1.0.0-M2.jar')
+    //implementation files('C:\\Users\\erics\\Desktop\\CS\\External Jars\\junit-4.13-rc-1.jar')
+
     providedCompile group:'javax.servlet', name:'javax.servlet-api', version:'4.0.1'
 
     libertyRuntime group:'io.openliberty', name:'openliberty-runtime', version:'[17.0.0.4,)'
