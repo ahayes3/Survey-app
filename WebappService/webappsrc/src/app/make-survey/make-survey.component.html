@@ -1,15 +1,26 @@
-<label>Enter Survey Question: </label>
-<input type = "text" #box1 (keyup)="onKey1(box1.value)">
+<div class = "share-bubble" style="margin-left: 100px; margin-right: 100px; margin-bottom: 0px; float:left">
 
-<label>Enter Survey Answers: </label>
-<div *ngFor="let i of numAns">
+  <label class = "question" >Enter Survey Question: </label>
 
-  <input type = "text" #box2 (keyup)="onKey2(box2.value,i)"><br>
+  <textarea maxlength = "150" style = "width: 90%; height: 60px; font-size: 15px; margin-bottom: 15px"
+            #box1 (keyup)="onKey1(box1.value)"></textarea>
 
+  <label>Enter Survey Answers: </label>
+  <div *ngFor="let i of numAns" style="display: inline-flex; width: 40%; z-index:1;">
+
+  <input type = "text" maxlength="25" style="margin-bottom: 15px" #box2 (keyup)="onKey2(box2.value,i)">
+
+  </div>
+
+  <div *ngIf="num%2==1">
+    <br>
+  </div>
+
+  <button class = "b2l" (click)="addAnswer()">+</button>
+  <button class = "b2r" (click)="subtractAnswer()">-</button><br/><br><br/>
 </div>
 
-<button (click)="addAnswer()">+</button>
-<button (click)="subtractAnswer()">-</button><br/><br><br/>
-
-<button (click)="resetAnswers()">clear</button>
-<button (click)="MakeSurvey();resetAnswers()">Make Survey</button>
+<div class = "share-bubble1" style="margin-left: 100px; margin-right: 100px; margin-bottom: 0px; float:left">
+  <button style="margin-left: 100px;" (click)="resetAnswers();box1.value=''">clear</button>
+  <button (click)="MakeSurvey();resetAnswers();box1.value=''" style="float:right; margin-right: 100px;">Make Survey</button>
+</div>
