@@ -34,4 +34,36 @@
     "answers": [],
     "id": "23123123123"
   }
+  {
+    "user": "Eric",
+    "question": "Beans?",
+    "options": ["Baked", "Kidney", "Pinto","jelly"],
+    "answers": [],
+    "id": "23123123123"
+  }
+  {
+    "user": "Mandy",
+    "question": "Do you like squirrels?",
+    "options": ["Yes", "No"],
+    "answers": [],
+    "id": "23123123123"
+  }
+  {
+    "user": "Ben",
+    "question": "Do you want to travel to China?",
+    "options": ["Yes", "No", "Maybe"],
+    "answers": [{"user": "Andy","option": "No"},{"user": "Ben","option": "No"}{"user": "Mark","option": "No"},{"user": "Justin","option": "No"},{"user": "Mandy","option": "Yes"}],
+    "id": "23123123123"
+  }
+  {
+    "user": "Mark",
+    "question": "Favorite kind of paper.",
+    "options": ["Tissue", "Printer", "Cardstock","Rice"],
+    "answers": [{"user": "Mandy","option": "Cardstock"},{"user": "Ben","option": "Printer"},{"user": "Justin","option": "Printer"}]
+    "id": "23123123123"
+  }
+
+
+
+
 ]
