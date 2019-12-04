@@ -43,7 +43,19 @@ ext{
     appName = project.name
     httpPort = 8090
     httpsPort = 9453
-    warContext = appName
+    warContext = '/'
+}
+
+task cpySrc(type: Copy) {
+    from "$projectDir/src/main/java/survey"
+    into "$projectDir/src/main/webapp"
+    include '**/surveys.json'
+}
+
+task deleteOld(type: Delete) {
+    doFirst {
+        delete "$projectDir/src/main/webapp"
+    }
 }
 
 liberty{
@@ -54,7 +66,7 @@ liberty{
         bootstrapProperties = ['default.http.port':httpPort,
                                'default.https.port':httpsPort,
                                'app.context.root': warContext]
-
+	
         packageLiberty{
             archive = '$buildDir/${appName}.zip'
             include = "usr"
@@ -62,9 +74,11 @@ liberty{
     }
 }
 
-war{
+war {
     archiveName = "${baseName}.${extension}"
 }
-
+war.dependsOn 'cpySrc'
+//build.finalizedBy 'cpySrc'
 clean.dependsOn 'libertyStop'
+clean.dependsOn 'deleteOld'
 libertyPackage.dependsOn 'libertyStop'

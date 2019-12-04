@@ -6,4 +6,10 @@
     <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}" id="defaultHttpEndpoint"  host="*" />
 
     <webApplication id="GradleSample" location="GradleSample.war" contextRoot="${app.context.root}" />
+
+    <cors domain="/SurveyService/surveys.json"
+    allowedOrigins="*"
+    allowedMethods="GET"
+    allowCredentials="true"
+    exposeHeaders="*"/>
 </server>

@@ -10,6 +10,8 @@ import javax.ws.rs.core.MediaType;
 import javax.json.JsonObjectBuilder;
 import javax.json.JsonObject;
 import javax.json.Json;
+import javax.json.JsonReader;
+import javax.json.JsonArray;
 import javax.ws.rs.core.Response;
 
 @Path("surveys")
@@ -19,12 +21,26 @@ public class PropertiesResource {
 
     @GET
     public Response getSurveys() {
+	    System.out.println(System.getProperty("user.dir"));
+	    InputStream fis=null;
+	    try
+	    {
+	        fis=new FileInputStream("../../../../../src/main/java/survey/surveys.json");
+		System.out.println("MADE IT HERE");
+	    }catch(IOException e){e.printStackTrace();}
+
+	    JsonReader reader=Json.createReader(fis);
+	    //JsonObject obj=reader.readObject();
+	    //JsonObjectBuilder survey=Json.createObjectBuilder();
+	    //survey.add(obj);
 	    System.out.println("CALLED");
-            JsonObjectBuilder survey=Json.createObjectBuilder();
-	    survey.add("user","Andy");
-	    survey.add("question", "Beans or no?");
-	    JsonObject built=survey.build();
-	    return Response.ok(built,MediaType.APPLICATION_JSON).build();
+            //JsonObject built=survey.build();
+	    JsonArray array = reader.readArray();
+	    try
+	    {
+	    fis.close();
+	    }catch(IOException e){e.printStackTrace();}
+	    return Response.ok(array,MediaType.APPLICATION_JSON).build();
     }
 
     @POST
